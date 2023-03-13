@@ -12,6 +12,13 @@ class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
         }
     }
 
+    fun isEntryValid(itemName: String, itemPrice: String, itemCount: String): Boolean {
+        if (itemName.isBlank() || itemPrice.isBlank() || itemCount.isBlank()) {
+            return false
+        }
+        return true
+    }
+
     private fun getNewItemEntry(itemName: String, itemPrice: String, itemCount: String): Item {
         return Item(
             itemName = itemName,
